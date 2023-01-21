@@ -20,6 +20,28 @@ function generatePasswords() {
 
     passwordOneEl.textContent = passwordOne
     passwordTwoEl.textContent = passwordTwo
+
+    let button1 = document.createElement("button")
+    button1.innerHTML = "Copy to clipboard"
+    let div1 = document.getElementById("div1")
+    div1.appendChild(button1)
+    button1.classList.add("copy-button")
+    button1.setAttribute("onclick", "copy('password-one', this)")
+    button1.addEventListener('mouseout', function() {
+        button1.innerHTML = "Copy to clipboard"
+    })
+
+
+    let button2 = document.createElement("button")
+    button2.innerHTML = "Copy to clipboard"
+    let div2 = document.getElementById("div2")
+    div2.appendChild(button2)
+    button2.classList.add("copy-button")
+    button2.setAttribute("onclick", "copy('password-two', this)")
+    button2.addEventListener('mouseout', function() {
+        button2.innerHTML = "Copy to clipboard"
+    })
+    
 }
 
 function randomCharacter() {
@@ -49,14 +71,17 @@ function createRipple(event) {
     button.appendChild(circle);
 }
 
-async function copy(element) {
-    let text = document.getElementById(element).innerHTML
-    
-    try {
+function copy(element, button) {
+    let text = document.getElementById(element).innerHTML;
+    const copyContent = async () => {
+        try {
         await navigator.clipboard.writeText(text);
         console.log('Content copied to clipboard');
-    } catch (err) {
+        } catch (err) {
         console.error('Failed to copy: ', err);
+        }
     }
-    
+  copyContent()
+  console.log(button)
+  button.textContent = "Copied!"
 }
