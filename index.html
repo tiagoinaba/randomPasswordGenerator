@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="hero">
+            <div id="header">
+                <h1>Generate a</h1>
+                <h1 class="accent">random password</h1>
+            </div>
+            <h2>Never use an insecure password again.</h2>
+            <div class="buttons">
+                <button id="generate-button" onclick="generatePasswords()">Generate passwords</button>
+            </div>
+            <div class="inputs">
+                <div class="characters-input">
+                    <input class="quantity" id="number-picker" min="8" max="15" name="form-0-quantity" value="8" type="number">
+                    <p id="characters">characters</p>
+                </div>
+                
+                <div class="characters-input">
+                    <label class="switch">
+                            <input type="checkbox" id="checkbox">
+                            <span class="slider round"></span>
+                    </label>
+                    <p>Include symbols and numbers?</p>
+                </div>
+            </div>
+        </div>
+        <div id="passwords">
+            <div class="empty-password">
+                <p id="password-one" class="password-text"></p>
+                <button id="button1" class="copy-button" onclick="copy('#password-one')">Copy to clipboard</button>
+            </div>
+            <div class="empty-password">
+                <p id="password-two" class="password-text"></p>
+                <button id="button2" class="copy-button" onclick="copy('#password-two')">Copy to clipboard</button>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
